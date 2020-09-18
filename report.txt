@@ -1,0 +1,96 @@
+This is the Java Bytecode Symbolic Executor's Run Tool (Assembles a jar archive containing the main classes. v.0.10.0-SNAPSHOT).
+Connecting to Z3 at /usr/bin/z3.
+Starting symbolic execution of method autojudge/grade/Grader:(I)V:PUT at Fri Sep 18 04:32:20 PDT 2020.
+.1.1.1[11] 
+Leaf state
+Path condition: 
+	{R0} == Object[4509] (fresh) &&
+	({V0}) > (0) &&
+	({V0}) > (1)
+	where:
+	{R0} == {ROOT}:this &&
+	{V0} == {ROOT}:__PARAM[1]
+Static store: {
+	
+}
+Heap: {
+	Object[4509]: {
+		Origin: {ROOT}:this
+		Class: (2,autojudge/grade/Grader)
+	}
+	
+}
+
+.1.1.1[11] path is safe.
+.1.1.2[7] 
+Leaf state
+Path condition: 
+	{R0} == Object[4509] (fresh) &&
+	({V0}) > (0) &&
+	({V0}) <= (1)
+	where:
+	{R0} == {ROOT}:this &&
+	{V0} == {ROOT}:__PARAM[1]
+Static store: {
+	
+}
+Heap: {
+	Object[4509]: {
+		Origin: {ROOT}:this
+		Class: (2,autojudge/grade/Grader)
+	}
+	
+}
+Stack: {
+	Frame[0]: {
+		Method signature: autojudge/grade/Grader:(I)V:PUT
+		Program counter: 16
+		Program counter after return: 19
+		Next bytecode: INVOKESTATIC jbse/meta/Analysis:(Z)V:ass3rt [4]
+		Source line: (12): <UNKNOWN>
+		Operand Stack: {
+			
+		}
+		Local Variables: {
+			Variable[0]: Name: this, Type: Lautojudge/grade/Grader;, Value: {R0} == Object[4509] (type: L)
+			Variable[1]: Name: __PARAM[1], Type: I, Value: {V0} (type: I)
+		}
+	}
+	Frame[1]: {
+		Method signature: jbse/meta/Analysis:(Z)V:ass3rt
+		Program counter: 4
+		Program counter after return: <UNKNOWN>
+		Next bytecode: INVOKESTATIC jbse/meta/Analysis:()V:fail [118]
+		Source line: (119): <UNKNOWN>
+		Operand Stack: {
+			
+		}
+		Local Variables: {
+			Variable[0]: Name: b, Type: Z, Value: false (type: Z)
+		}
+	}	
+}
+.1.1.2[7] path violates an assertion.
+.1.2[17] 
+Leaf state
+Path condition: 
+	{R0} == Object[4509] (fresh) &&
+	({V0}) <= (0)
+	where:
+	{R0} == {ROOT}:this &&
+	{V0} == {ROOT}:__PARAM[1]
+Static store: {
+	
+}
+Heap: {
+	Object[4509]: {
+		Origin: {ROOT}:this
+		Class: (2,autojudge/grade/Grader)
+	}
+	
+}
+
+.1.2[17] path is safe.
+Symbolic execution finished at Fri Sep 18 04:32:24 PDT 2020.
+Analyzed states: 507056, Analyzed pre-initial states: 507009, Analyzed paths: 3, Safe: 2, Unsafe: 1, Out of scope: 0, Violating assumptions: 0, Unmanageable: 0.
+Elapsed time: 4 sec 51 msec, Elapsed pre-initial phase time: 3 sec 921 msec, Average speed: 125168 states/sec, Average post-initial phase speed: 361 states/sec, Elapsed time in decision procedure: 29 msec (0.72% of total).
