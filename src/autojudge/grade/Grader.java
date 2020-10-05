@@ -6,10 +6,11 @@ import autojudge.code.Student;
 import static jbse.meta.Analysis.ass3rt;
 import jbse.apps.run.Run;
 import jbse.apps.run.RunParameters;
+import static jbse.meta.Analysis.assume;
 
 public class Grader {
-    void PUT(int i) {
-        ass3rt(Teacher.m(i) == Student.m(i));
+    void PUT(int x) {
+        ass3rt(Teacher.m(x)==Student.m(x));
     }
 
     public static void main(String[] args) {
