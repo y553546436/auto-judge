@@ -1,5 +1,5 @@
 if [[ -z $CP_spring_test_mvc ]]; then
-  cd ~/spring-test-mvc
+  cd ../spring-test-mvc
   export CP_spring_test_mvc=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

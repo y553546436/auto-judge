@@ -1,5 +1,5 @@
 if [[ -z $CP_vraptor4 ]]; then
-  cd ~/vraptor4/vraptor-core
+  cd ../vraptor4/vraptor-core
   export CP_vraptor4=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

@@ -1,5 +1,5 @@
 if [[ -z $CP_httpcomponents_client ]]; then
-  cd ~/httpcomponents-client/httpclient5
+  cd ../httpcomponents-client/httpclient5
   export CP_httpcomponents_client=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

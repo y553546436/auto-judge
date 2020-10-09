@@ -1,5 +1,5 @@
 if [[ -z $CP_slf4j ]]; then
-  cd ~/slf4j/slf4j-api
+  cd ../slf4j/slf4j-api
   export CP_slf4j=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

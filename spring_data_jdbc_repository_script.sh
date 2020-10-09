@@ -1,5 +1,5 @@
 if [[ -z $CP_spring_data_jdbc_repository ]]; then
-  cd ~/spring-data-jdbc-repository
+  cd ../spring-data-jdbc-repository
   export CP_spring_data_jdbc_repository=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

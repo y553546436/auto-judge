@@ -1,5 +1,5 @@
 if [[ -z $CP_android_rss ]]; then
-  cd ~/android-rss
+  cd ../android-rss
   export CP_android_rss=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

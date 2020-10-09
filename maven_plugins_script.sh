@@ -1,5 +1,5 @@
 if [[ -z $CP_maven_plugins ]]; then
-  cd ~/maven-plugins/github-core
+  cd ../maven-plugins/github-core
   export CP_maven_plugins=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

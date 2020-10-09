@@ -1,5 +1,5 @@
 if [[ -z $CP_commafeed ]]; then
-  cd ~/commafeed
+  cd ../commafeed
   export CP_commafeed=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

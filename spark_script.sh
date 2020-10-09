@@ -1,5 +1,5 @@
 if [[ -z $CP_spark ]]; then
-  cd ~/spark
+  cd ../spark
   export CP_spark=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

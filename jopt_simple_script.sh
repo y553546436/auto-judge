@@ -1,5 +1,5 @@
 if [[ -z $CP_jopt_simple ]]; then
-  cd ~/jopt-simple
+  cd ../jopt-simple
   export CP_jopt_simple=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

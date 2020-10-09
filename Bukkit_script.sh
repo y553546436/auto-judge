@@ -1,5 +1,5 @@
 if [[ -z $CP_Bukkit ]]; then
-  cd ~/Bukkit
+  cd ../Bukkit
   export CP_Bukkit=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi

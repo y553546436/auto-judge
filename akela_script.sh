@@ -1,5 +1,5 @@
 if [[ -z $CP_akela ]]; then
-  cd ~/akela
+  cd ../akela
   export CP_akela=$(pwd)/target/classes:$(pwd)/target/test-classes:$(mvn dependency:build-classpath | grep -A1 "\[INFO\] Dependencies classpath:" | tail -1)
   cd -
 fi
