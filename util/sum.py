@@ -2,6 +2,10 @@
 
 vic="VICTIM"
 pol="POLLUTER"
+def readline(linel, cur):
+    while vic in linel[cur] or pol in linel[cur]:
+        cur += 1
+    return cur
 with open("summary", "r") as fin:
     lines = fin.readlines()
     i = 0
@@ -10,11 +14,13 @@ with open("summary", "r") as fin:
     p=[]
     while i < len(lines):
         if vic in  lines[i] and pol in lines[i+1]:
-            both.append(lines[i+2])
-            i += 3
+            i = readline(lines, i)
+            both.append(lines[i])
+            i += 1
         elif pol in lines[i] and vic in  lines[i+1]:
-            both.append(lines[i+2])
-            i += 3
+            i = readline(lines, i)
+            both.append(lines[i])
+            i += 1
         elif vic in lines[i]:
             v.append(lines[i+1])
             i += 2
@@ -22,7 +28,7 @@ with open("summary", "r") as fin:
             p.append(lines[i+1])
             i += 2
         else:
-            assert "log" in lines[i]
+            assert "log" in lines[i], lines[i]
             i += 1
     print("BOTH")
     for item in both:
