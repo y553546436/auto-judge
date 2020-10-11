@@ -6,4 +6,4 @@ for f in $(ls *_script.sh); do
 done
 
 echo "Everything done"
-egrep ".*sh$|.*elapsed" summary
+egrep ".*sh$|.*elapsed" summary |& tee simplified_summary

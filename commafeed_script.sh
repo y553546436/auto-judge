@@ -8,7 +8,7 @@ echo $CP_commafeed
 mkdir -p logs/commafeed
 SECONDS=0
 #7
-for n in main{2..3}; do
+for n in main{1..7}; do
   timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_commafeed $n $CP_commafeed >& logs/commafeed/log-$n
 
   if [ $? = 124 ] ; then
