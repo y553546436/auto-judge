@@ -5,14 +5,14 @@ if [[ -z $CP_spring_test_mvc ]]; then
 fi
 
 echo $CP_spring_test_mvc
-
+mkdir -p logs/spring_test_mvc
 SECONDS=0
 #53
 for n in main{1..53}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_spring_test_mvc $n $CP_spring_test_mvc >& logs/spring_test_mvc-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_spring_test_mvc $n $CP_spring_test_mvc >& logs/spring_test_mvc/log-$n 
 
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/spring_test_mvc-log-$n 
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/spring_test_mvc/log-$n 
   fi
 done
  

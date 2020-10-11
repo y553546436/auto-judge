@@ -5,14 +5,14 @@ if [[ -z $CP_slf4j ]]; then
 fi
 
 echo $CP_slf4j
-
+mkdir -p logs/slf4j
 SECONDS=0
 #37
 for n in main{1..37}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_slf4j $n $CP_slf4j >& logs/slf4j-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_slf4j $n $CP_slf4j >& logs/slf4j/log-$n 
 
   if [ $? = 124 ] ; then
-  printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/slf4j-log-$n 
+      printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/slf4j/log-$n 
   fi
 done
  

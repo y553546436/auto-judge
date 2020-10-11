@@ -5,14 +5,14 @@ if [[ -z $CP_Bukkit ]]; then
 fi
 
 echo $CP_Bukkit
-
+mkdir -p logs/Bukkit
 SECONDS=0
 
 for n in main{1..63}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_Bukkit $n $CP_Bukkit >& logs/Bukkit-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_Bukkit $n $CP_Bukkit >& logs/Bukkit/log-$n 
   #echo $?
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/Bukkit-log-$n
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/Bukkit/log-$n
   fi
 done
 

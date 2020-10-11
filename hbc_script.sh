@@ -5,14 +5,14 @@ if [[ -z $CP_hbc ]]; then
 fi
 
 echo $CP_hbc
-
+mkdir -p logs/hbc
 SECONDS=0
 
 for n in main{1..22}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_hbc $n $CP_hbc >& logs/hbc-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_hbc $n $CP_hbc >& logs/hbc/log-$n 
 
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/hbc-log-$n 
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/hbc/log-$n 
   fi
 done
  

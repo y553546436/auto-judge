@@ -5,14 +5,14 @@ if [[ -z $CP_jopt_simple ]]; then
 fi
 
 echo $CP_jopt_simple
-
+mkdir -p logs/jopt-simple
 SECONDS=0
 #60
 for n in main{1..60}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_jopt_simple $n $CP_jopt_simple >& logs/jopt-simple-log-$n
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_jopt_simple $n $CP_jopt_simple >& logs/jopt-simple/log-$n
 
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/jopt-simple-log-$n 
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/jopt-simple/log-$n 
   fi
 done
  

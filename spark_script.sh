@@ -5,14 +5,14 @@ if [[ -z $CP_spark ]]; then
 fi
 
 echo $CP_spark
-
+mkdir -p logs/spark
 SECONDS=0
 #53
 for n in main{1..53}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_spark $n $CP_spark >& logs/spark-log-$n
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_spark $n $CP_spark >& logs/spark/log-$n
 
   if [ $? = 124 ] ; then 
-  printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/spark-log-$n 
+  printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/spark/log-$n 
   fi
 done
  

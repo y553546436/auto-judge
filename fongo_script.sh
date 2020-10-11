@@ -5,14 +5,14 @@ if [[ -z $CP_fongo ]]; then
 fi
 
 echo $CP_fongo
-
+mkdir -p logs/fongo
 SECONDS=0
 
 for n in main{1..8}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_fongo $n $CP_fongo >& logs/fongo-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_fongo $n $CP_fongo >& logs/fongo/log-$n 
   
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/fongo-log-$n
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/fongo/log-$n
   fi
 done
 

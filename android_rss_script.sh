@@ -5,14 +5,14 @@ if [[ -z $CP_android_rss ]]; then
 fi
 
 echo $CP_android_rss
-
+mkdir -p logs/android_rss
 SECONDS=0
 #20
 for n in main{1..20}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_android_rss $n $CP_android_rss >& logs/android_rss-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_android_rss $n $CP_android_rss >& logs/android_rss/log-$n 
   #echo $?
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/android_rss-log-$n
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/android_rss/log-$n
   fi
 done
 

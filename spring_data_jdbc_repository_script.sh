@@ -7,12 +7,12 @@ fi
 echo $CP_spring_data_jdbc_repository
 
 SECONDS=0
-
+mkdir -p logs/spring_data_jdbc_repository
 for n in main{1..13}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_spring_data_jdbc_repository $n $CP_spring_data_jdbc_repository >& logs/spring-data-jdbc-repository-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_spring_data_jdbc_repository $n $CP_spring_data_jdbc_repository >& logs/spring-data-jdbc-repository/log-$n 
 
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/spring-data-jdbc-repository-log-$n 
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/spring-data-jdbc-repository/log-$n 
   fi
 done
  

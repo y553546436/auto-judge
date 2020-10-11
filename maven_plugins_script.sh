@@ -5,13 +5,13 @@ if [[ -z $CP_maven_plugins ]]; then
 fi
 
 echo $CP_maven_plugins
-
+mkdir -p logs/maven-plugins
 SECONDS=0
 
 for n in main{1..5}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_maven_plugins $n $CP_maven_plugins >& logs/maven-plugins-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_maven_plugins $n $CP_maven_plugins >& logs/maven-plugins/log-$n 
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/maven-plugins-log-$n
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/maven-plugins/log-$n
   fi
 done
 

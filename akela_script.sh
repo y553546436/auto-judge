@@ -6,13 +6,15 @@ fi
 
 echo $CP_akela
 
+mkdir -p logs/akela
+
 SECONDS=0;
 
 for n in main{1..6}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_akela $n $CP_akela >& logs/akela-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_akela $n $CP_akela >& logs/akela/log-$n 
   
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/akela-log-$n
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/akela/log-$n
   fi
 done
 

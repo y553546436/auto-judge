@@ -5,13 +5,13 @@ if [[ -z $CP_httpcomponents_client ]]; then
 fi
 
 echo $CP_httpcomponents_client
-
+mkdir -p logs/httpcomponents_client
 SECONDS=0
 #52
 for n in main{1..52}; do
-  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_httpcomponents_client $n $CP_httpcomponents_client >& logs/httpcomponents_client-log-$n 
+  timeout 30s java -cp jbse-0.10.0-SNAPSHOT-shaded.jar:classes Luke Driver_httpcomponents_client $n $CP_httpcomponents_client >& logs/httpcomponents_client/log-$n 
   if [ $? = 124 ] ; then
-    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/httpcomponents_client-log-$n 
+    printf "TIMEOUT\nMAY_BE_POLLUTER\nMAY_BE_VICTIM" >> logs/httpcomponents_client/log-$n 
   fi
 done
  
