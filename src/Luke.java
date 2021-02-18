@@ -56,7 +56,7 @@ class Driver {
 
     static public void main0() throws Exception {
         //if(true) throw new RuntimeException("Hello");
-	    Driver_akela.main1();
+        Driver.main("cn.hutool.core.io.FileTypeUtilTest", "fileTypeUtilTest");
     }
 }
 
@@ -582,14 +582,14 @@ public class Luke {
     }
     
     private static void set(RunParameters p, String drivername, String methodName, String classpath) {
-	String ns = "/home/lukeyi/auto-judge/classes:" + classpath + ":/home/lukeyi/auto-judge/jbse-0.10.0-SNAPSHOT-shaded.jar";
+	String ns = "/mnt/batch/tasks/workitems/SUA_tmp_r0_1M7d21h27m24s/job-1/Task1/wd/auto-judge/classes:" + classpath + ":/mnt/batch/tasks/workitems/SUA_tmp_r0_1M7d21h27m24s/job-1/Task1/wd/auto-judge/jbse-0.10.0-SNAPSHOT-shaded.jar";
 	String[] a = ns.split(":");
 	p.addUserClasspath(a);
         p.setMethodSignature(drivername, "()V", methodName);
         p.setDecisionProcedureType(RunParameters.DecisionProcedureType.Z3);
         p.setExternalDecisionProcedurePath("/usr/bin/z3");
-        p.setOutputFileName("/home/lukeyi/auto-judge/report.txt");
+        p.setOutputFileName("/mnt/batch/tasks/workitems/SUA_tmp_r0_1M7d21h27m24s/job-1/Task1/wd/auto-judge/report.txt");
         p.setStateFormatMode(RunParameters.StateFormatMode.TEXT);
-        p.setStepShowMode(RunParameters.StepShowMode.NONE);
+        p.setStepShowMode(RunParameters.StepShowMode.LEAVES);
     }
 }
